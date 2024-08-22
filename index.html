@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Photos</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Splide.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide.min.css">
+    <!-- Splide.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+     <nav>
+        <div class="sale-cont"><h4>SUPER SALE UP TO 40% OFF</h4></div>
+     </nav>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="https://www.plushforher.com/collections/shop-all-1?utm_source=google-ads&utm_medium=cpc&utm_campaign=ADB_Search_Brand&gad_source=1&gclid=CjwKCAjw_ZC2BhAQEiwAXSgClp8D-ee0JVa6W4DLuXTtLZF-IlhGKBnNv6ZzAc6V91J6P17lcHaurRoCt-UQAvD_BwE">Shope</a></li>
+                <li><a href="#community-form" id="community-link">Community</a></li>
+            </ul>
+        </nav>
+          
+        <img style="width: 100px;" src="https://s3-alpha-sig.figma.com/img/fa86/dba2/8e54fa1a57be9e9b0dc3bd6b4b441d93?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jqL6~~03zCUCQLxFpuy~gxWq735qb8GVHE6kwbA9x5QNJeJGmG-39PmPt3mBy5WlqTrIMaMl~lgqn2SP7oqr40K~xKra5JQvvk6c5vaaP-TBTv9VH8UQMZRF1pk4d2VN1q7t5wXpYOMghdmxSrTlGsosFo1-9uuQM9UKBogtP1LeljgrnpDto2eQQUklDfI9CZtCebByGmnFzQjHokNkI5grBvOIVOhG15NIHA3ShMMeB1Es1tAPkj5kAscjShBVsC~yMl72EcNS9y54PCcLpzZrwC80urKhx2DO1hemtHKfIY3Yf2PPPtFziXHwMkZMh4CwaoSaP9MXx8XOYEY7pw__" alt="">
+
+        <div class="header-icons">
+            <i class="fas fa-user"></i>
+            <i id="search-icon" class="fas fa-search"></i>
+            <i id="cart-icon" class="fas fa-shopping-cart cart-icon">
+                <span class="cart-count" id="cart-count">0</span>
+            </i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://s3-alpha-sig.figma.com/img/154e/382f/b7e8be84d7248b8b9812172cad1cd0c9?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VKCsNmtH6xY2Xw0dgGyKEW9HGeKDgI8bY4DjKtMjsqIvuN8pqXiOvOFoGtv8Q6OVxYzvoRj~4JSFJSnNRfTS8eXWoC5mzAWnrYqspkoRbwLIrxJ~z1WfsK323pjN8vvnZcpVs1kZrYrufAeFevIFj4V0Ati4NdfWF72nJot4789MJUt15ME7EAXD3Osli1hgrnnuJYJE24U-jUnA~j~VvphlXYJWtZNoybsid2goxUopBYXDKgyctzLHo4gN~GNRylg6h4UV4RhhmCi8gvqaE09Bk7F7yQcmXdWwJ8jZhmnVZhTGly9yQfGYtLYGMHEe-KPB2imlCrdesitMxFc3JQ__" alt="Hero Image" class="hero-image">
+        <div class="hero-content">
+            <h1>Stock Photos</h1>
+            <p>John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>
+                <a class="explore-button" href="https://www.plushforher.com/collections/shop-all-1?utm_source=google-ads&utm_medium=cpc&utm_campaign=ADB_Search_Brand&gad_source=1&gclid=CjwKCAjw_ZC2BhAQEiwAXSgClp8D-ee0JVa6W4DLuXTtLZF-IlhGKBnNv6ZzAc6V91J6P17lcHaurRoCt-UQAvD_BwE">
+                    <img src="https://stock-photos-ishaq.netlify.app/images/play%20icon.png" alt="">
+                    Explore</a>
+        </div>
+    </section>
+
+    <!-- Search Input -->
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Laptop"><i style="margin-left: -30px;" class="fas fa-search search-icon"></i>
+        <button onclick="performSearch()">Search</button>
+    </div>
+
+    <!-- Results Section -->
+    <section class="results">
+
+        <div class="photographer-details">
+            
+        </div>
+
+
+        <h2>Similar Results</h2>
+        <div id="similar-results">
+            
+        </div>
+
+        <div class="result-list" id="similar-results"></div>
+
+        <h2>Favorite Results</h2>
+        <div id="image-gallery"></div>
+        <div class="result-list" id="favorite-results">
+            
+        </div>
+    </section>
+
+
+<!-- Community Form -->
+<div id="community-popup" class="popup-container">
+    <div class="popup-content">
+      <span class="close-btn" id="close-form-button">&times;</span>
+      <div id="community-form" class="community-form">
+        <h2>Join Our Community</h2>
+        <form action="/submit-community-form" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+  
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+  
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+  
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
