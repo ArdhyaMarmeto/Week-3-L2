@@ -423,7 +423,7 @@ width: 100%;
   height: 60px;
   border-radius: 50%;
   margin-right: 15px;
-  border: 1px solid green;
+
 }
 
 .photographer-info h6 {
@@ -512,7 +512,7 @@ width: 100%;
 }
 
 .heart-icon.favorite {
-  color: red;
+  background: red;
   text-shadow: none;
 }
 

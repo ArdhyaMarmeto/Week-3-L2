@@ -1,4 +1,3 @@
-
 const API_KEY = 'ml3IcyswtevACPjeoE94GGXBWYVbtBmg88s6GaeLBxjkmWYl0K5X6FKC';
 const API_URL = 'https://api.pexels.com/v1/search?query=';
 
@@ -6,7 +5,7 @@ const API_URL = 'https://api.pexels.com/v1/search?query=';
 async function fetchImages(query) {
     const response = await fetch(`${API_URL}${query}`, {
         headers: {
-            Authorization: `Bearer ${API_KEY}` // Updated to use 'Bearer' for the Authorization header
+            Authorization: API_KEY
         }
     });
 
@@ -38,7 +37,7 @@ function performSearch() {
             const resultItem = `
                 <li class="splide__slide">
                     <div class="result-item">
-                        <i class="heart-icon">&#9829;</i> <!-- Heart icon -->
+                        <i class="heart-icon">&#9825;</i>
                         <img src="${image.src.medium}" alt="${image.alt}">
                         <h4>${image.alt}</h4>
                         <h6>${image.photographer}</h6>
@@ -48,18 +47,16 @@ function performSearch() {
             sliderList.innerHTML += resultItem;
 
             // Populate photographer details
-            const photographerDetailsInnerHTML = `
+            const photographerDetailsinnerHTML = `
                 <div class="photographer-info">
                     <img src="${image.photographer_url}" alt="${image.photographer}" class="photographer-image">
                 </div>
                 <div class="photographer-name">
                     <h6>${image.photographer}</h6>
-                    <button class="explore-more-btn" onclick="window.open('${image.photographer_url}', '_blank')">
-                        Explore More
-                    </button>
+                    <a href="${image.photographer_url}" target="_blank" class="explore-more-btn">Explore More</a>
                 </div>
             `;
-            photographerDetailsDiv.innerHTML = photographerDetailsInnerHTML;
+            photographerDetailsDiv.innerHTML = photographerDetailsinnerHTML;
 
             foundResults = true;
         });
@@ -105,17 +102,15 @@ function addFavoriteFunctionality() {
                 <img src="${favorite.img}" alt="${favorite.title}">
                 <h4>${favorite.title}</h4>
                 <h6>${favorite.photographer}</h6>
-                <i class="heart-icon favorited">&#9829;</i> <!-- Favorited icon -->
+                <i class="heart-icon favorited">&#9825;</i>
             `;
             favoritesSection.appendChild(item);
         });
     };
     loadFavorites();
 
-    // Function to handle the favorite icon click
-    document.addEventListener('click', (event) => {
-        if (event.target.classList.contains('heart-icon')) {
-            const icon = event.target;
+    heartIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
             const resultItem = icon.closest('.result-item');
             const isFavorited = icon.classList.contains('favorited');
             const imgSrc = resultItem.querySelector('img').src;
@@ -141,7 +136,7 @@ function addFavoriteFunctionality() {
                 favorites.push({ img: imgSrc, title, photographer });
                 localStorage.setItem('favorites', JSON.stringify(favorites));
             }
-        }
+        });
     });
 }
 
@@ -179,25 +174,8 @@ window.addEventListener('click', (event) => {
 });
 
 // Form submission
-const communityForm = document.getElementById('community-form'); // Ensure this ID matches your form
 communityForm.addEventListener('submit', (event) => {
     event.preventDefault();
     alert('Form submitted');
     popupContainer.style.display = 'none';
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
